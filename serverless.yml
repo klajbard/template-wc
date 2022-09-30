@@ -1,0 +1,34 @@
+service: template
+
+plugins:
+  - serverless-hooks-plugin
+  - serverless-s3-sync
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-central-1
+
+custom:
+  hooks:
+    before:package:createDeploymentArtifacts:
+      - yarn build
+  s3Sync:
+    - bucketName: template.com
+      localDir: dist
+      params:
+        - index.html:
+            CacheControl: 'no-cache'
+        - "**/*.html":
+            CacheControl: 'no-cache'
+        - "**/*.{js,webp,css,png,jpg}":
+            CacheControl: 'public, max-age=31536000'
+    - bucketName: cdn.template.com
+      localDir: dist
+      params:
+        - index.html:
+            CacheControl: 'no-cache'
+        - "**/*.html":
+            CacheControl: 'no-cache'
+        - "**/*.{js,webp,css,png,jpg}":
+            CacheControl: 'public, max-age=31536000'

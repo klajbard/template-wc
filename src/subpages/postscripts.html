@@ -1,0 +1,11 @@
+<script>
+  (function () {
+    const el = document.querySelector("#nav-toggle");
+    const header = document.querySelector("header");
+    if (el) {
+      el.addEventListener("click", function () {
+        header.classList.toggle("open");
+      });
+    }
+  })();
+</script>

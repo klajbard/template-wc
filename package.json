@@ -1,0 +1,36 @@
+{
+  "name": "template-wc",
+  "description": "Template Web components",
+  "scripts": {
+    "start": "HOSTNAME=\"http://localhost:3000\" CDN_HOST=\"http://localhost:3000\" gulp watch",
+    "build": "HOSTNAME=\"https://template.com\" CDN_HOST=\"https://cdn.template.com\" gulp",
+    "deploy": "sls deploy --verbose", 
+    "format": "prettier '{,src}/**/*.{html,js,css}' --write",
+    "lint": "eslint src/**/*.js"
+  },
+  "dependencies": {
+    "lit": "^2.2.0"
+  },
+  "devDependencies": {
+    "@webcomponents/webcomponentsjs": "^2.6.0",
+    "browser-sync": "^2.27.7",
+    "clean-css": "^5.2.4",
+    "eslint": "^8.9.0",
+    "eslint-plugin-lit": "^1.6.1",
+    "eslint-plugin-wc": "^1.3.2",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-hash-filename": "^4.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.3",
+    "prettier": "^2.5.1",
+    "rollup": "^2.67.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "serverless-hooks-plugin": "^1.1.0",
+    "serverless-s3-sync": "^3.1.0",
+    "terser": "^5.10.0"
+  },
+  "license": "MIT"
+}
